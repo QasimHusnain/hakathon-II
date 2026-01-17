@@ -6,7 +6,7 @@ date: 2026-01-17
 surface: agent
 model: claude-opus-4-5-20251101
 feature: none
-branch: 002-enhanced-todo-features
+branch: todo-features
 user: user
 command: /sp.constitution
 labels: ["cli-ui", "validation", "category", "sort", "numeric-menu"]

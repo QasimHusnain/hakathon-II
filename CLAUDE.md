@@ -215,8 +215,8 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - **In-Memory Storage** - Python dict/list data structures (data clears on exit)
 - **Claude Code** - AI-assisted development
 - **Spec-Kit Plus** - Spec-driven development framework
-- Python 3.13+ (per constitution) + Python standard library only (typing, dataclasses, enum, datetime, argparse) (002-enhanced-todo-features)
-- In-Memory (Python dict/list data structures - clears on exit) (002-enhanced-todo-features)
+- Python 3.13+ (per constitution) + Python standard library only (typing, dataclasses, enum, datetime, argparse) (todo-features)
+- In-Memory (Python dict/list data structures - clears on exit) (todo-features)
 
 ## Phase I Features (8 Pillars)
 1. Add Task - Interactive sequential prompts (Title → Description → Priority → Category → Due Date)
@@ -234,6 +234,6 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 - Interactive prompts for data entry
 
 ## Recent Changes
-- 002-enhanced-todo-features: Constitution v2.1.0 - Added Category field, Sort functionality, numeric menu system, CLI UI standards, input validation rules
-- 002-enhanced-todo-features: Added Python 3.13+ (per constitution) + Python standard library only (typing, dataclasses, enum, datetime, argparse)
+- todo-features: Constitution v2.1.0 - Added Category field, Sort functionality, numeric menu system, CLI UI standards, input validation rules
+- todo-features: Added Python 3.13+ (per constitution) + Python standard library only (typing, dataclasses, enum, datetime, argparse)
 - Phase I: Todo In-Memory Python Console App implementation

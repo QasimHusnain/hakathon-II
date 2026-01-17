@@ -2,7 +2,7 @@
 Output formatting for Todo CLI Enhanced.
 
 Satisfies: specs/001-todo-cli-basic/tasks.md - T012, T013, T040, T041
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T013, T014, T015, T016, T019, T020, T021, T022, T023, T050
+Satisfies: specs/todo-features/tasks.md - T013, T014, T015, T016, T019, T020, T021, T022, T023, T050
 """
 
 from datetime import date, time
@@ -24,7 +24,7 @@ def format_priority(priority: Priority) -> str:
     Returns:
         Formatted priority indicator
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T019
+    Satisfies: specs/todo-features/tasks.md - T019
     """
     indicators = {
         Priority.HIGH: "[H]",
@@ -50,7 +50,7 @@ def format_due_info(
     Returns:
         Formatted due info string or empty string if no info
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T020, T023
+    Satisfies: specs/todo-features/tasks.md - T020, T023
     """
     parts = []
 
@@ -83,7 +83,7 @@ def format_task(task: Task) -> str:
         Formatted string with all indicators and task details
 
     Satisfies: specs/001-todo-cli-basic/tasks.md - T012
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T015, T016, T021, T023
+    Satisfies: specs/todo-features/tasks.md - T015, T016, T021, T023
     """
     # Status indicator: [ ] for pending, [X] for complete
     status_indicator = "[X]" if task.status == Status.COMPLETE else "[ ]"
@@ -121,7 +121,7 @@ def format_task_list(tasks: list[Task], is_filtered: bool = False) -> str:
         Formatted string with all tasks or appropriate empty message
 
     Satisfies: specs/001-todo-cli-basic/tasks.md - T013
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T022, T050
+    Satisfies: specs/todo-features/tasks.md - T022, T050
     """
     if not tasks:
         if is_filtered:

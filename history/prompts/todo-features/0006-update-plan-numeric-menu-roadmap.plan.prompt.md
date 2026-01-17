@@ -5,20 +5,20 @@ stage: plan
 date: 2026-01-17
 surface: agent
 model: claude-opus-4-5-20251101
-feature: 002-enhanced-todo-features
-branch: 002-enhanced-todo-features
+feature: todo-features
+branch: todo-features
 user: user
 command: /sp.plan
 labels: ["plan-update", "numeric-menu", "transition-roadmap", "cli-refactor"]
 links:
-  spec: specs/002-enhanced-todo-features/spec.md
+  spec: specs/todo-features/spec.md
   ticket: null
   adr: null
   pr: null
 files:
-  - specs/002-enhanced-todo-features/plan.md
-  - specs/002-enhanced-todo-features/contracts/cli-interface.md
-  - specs/002-enhanced-todo-features/quickstart.md
+  - specs/todo-features/plan.md
+  - specs/todo-features/contracts/cli-interface.md
+  - specs/todo-features/quickstart.md
 tests:
   - null
 ---

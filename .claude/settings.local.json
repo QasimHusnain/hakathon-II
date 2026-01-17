@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(sp.plan)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "Skill(sp.tasks)",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Skill(sp.implement)",
+      "Bash(python3 -m py_compile:*)",
+      "Bash(python3:*)",
+      "Bash(/mnt/d/hakathon-todo/.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(gh repo create:*)"
+    ]
+  }
+}

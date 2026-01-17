@@ -2,7 +2,7 @@
 """
 Todo CLI Enhanced - Main entry point with numeric menu system.
 
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T025, T026, T027, T029, T039, T045, T053, T060, T066, T074, T081
+Satisfies: specs/todo-features/tasks.md - T025, T026, T027, T029, T039, T045, T053, T060, T066, T074, T081
 """
 
 from src.services.task_manager import TaskManager
@@ -18,7 +18,7 @@ def main_menu_loop(manager: TaskManager) -> None:
     """
     Main menu loop for numeric menu selection.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T025, T026
+    Satisfies: specs/todo-features/tasks.md - T025, T026
     """
     while True:
         display_main_menu()
@@ -51,7 +51,7 @@ def main() -> None:
     """
     Main entry point for Todo CLI Enhanced.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T027
+    Satisfies: specs/todo-features/tasks.md - T027
     """
     manager = TaskManager()
 

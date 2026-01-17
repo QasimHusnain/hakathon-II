@@ -1,6 +1,6 @@
 # Data Model: Enhanced Todo CLI with Refined UI
 
-**Feature**: 002-enhanced-todo-features
+**Feature**: todo-features
 **Created**: 2026-01-16
 **Updated**: 2026-01-17
 

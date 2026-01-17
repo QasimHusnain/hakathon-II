@@ -1,6 +1,6 @@
 # Tasks: Enhanced Todo CLI with Refined UI
 
-**Input**: Design documents from `/specs/002-enhanced-todo-features/`
+**Input**: Design documents from `/specs/todo-features/`
 **Prerequisites**: plan.md, spec.md, data-model.md, contracts/cli-interface.md, quickstart.md
 
 **Tests**: Tests included for validation of new functionality

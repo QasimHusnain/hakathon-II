@@ -5,13 +5,13 @@ stage: green
 date: 2026-01-17
 surface: agent
 model: claude-opus-4-5-20251101
-feature: 002-enhanced-todo-features
-branch: 002-enhanced-todo-features
+feature: todo-features
+branch: todo-features
 user: user
 command: /sp.implement
 labels: ["implementation", "numeric-menu", "cli-refactor", "interactive-prompts"]
 links:
-  spec: specs/002-enhanced-todo-features/spec.md
+  spec: specs/todo-features/spec.md
   ticket: null
   adr: null
   pr: null
@@ -22,14 +22,14 @@ files:
   - src/cli/formatter.py
   - src/cli/parser.py
   - main.py
-  - specs/002-enhanced-todo-features/tasks.md
+  - specs/todo-features/tasks.md
 tests:
   - null
 ---
 
 ## Prompt
 
-/sp.implement - Execute the implementation plan by processing and executing all tasks defined in tasks.md for the 002-enhanced-todo-features feature. This includes transitioning from text-based commands to a numeric menu system (1-8), implementing interactive prompts for task creation, adding category field, sort functionality, and visual separation lines.
+/sp.implement - Execute the implementation plan by processing and executing all tasks defined in tasks.md for the todo-features feature. This includes transitioning from text-based commands to a numeric menu system (1-8), implementing interactive prompts for task creation, adding category field, sort functionality, and visual separation lines.
 
 ## Response snapshot
 

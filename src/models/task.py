@@ -2,7 +2,7 @@
 Task model and related types for Todo CLI Enhanced.
 
 Satisfies: specs/001-todo-cli-basic/tasks.md - T006, T007, T008
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T002, T004, T005, T006
+Satisfies: specs/todo-features/tasks.md - T002, T004, T005, T006
 """
 
 from dataclasses import dataclass, field
@@ -26,7 +26,7 @@ class Priority(Enum):
     """
     Task priority level with integer values for numeric menu input.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T004, T005
+    Satisfies: specs/todo-features/tasks.md - T004, T005
     """
     HIGH = 1
     MEDIUM = 2
@@ -37,7 +37,7 @@ class Recurrence(Enum):
     """
     Task recurrence type with integer values for numeric menu input.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T005, T006
+    Satisfies: specs/todo-features/tasks.md - T005, T006
     """
     NONE = 0
     DAILY = 1
@@ -90,7 +90,7 @@ class Task:
         created_at: Timestamp when task was created
 
     Satisfies: specs/001-todo-cli-basic/tasks.md - T008
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T004, T006
+    Satisfies: specs/todo-features/tasks.md - T004, T006
     """
     id: int
     title: str

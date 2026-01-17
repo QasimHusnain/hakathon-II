@@ -1,6 +1,6 @@
 # Research: Enhanced Todo CLI
 
-**Feature**: 002-enhanced-todo-features
+**Feature**: todo-features
 **Date**: 2026-01-16
 **Status**: Complete
 

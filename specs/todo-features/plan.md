@@ -1,7 +1,7 @@
 # Implementation Plan: Enhanced Todo CLI with Refined UI
 
-**Branch**: `002-enhanced-todo-features` | **Date**: 2026-01-17 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/002-enhanced-todo-features/spec.md`
+**Branch**: `todo-features` | **Date**: 2026-01-17 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `/specs/todo-features/spec.md`
 
 ## Summary
 
@@ -51,7 +51,7 @@ Refactor the existing CLI-based Todo application to use a numeric menu system (1
 ### Documentation (this feature)
 
 ```text
-specs/002-enhanced-todo-features/
+specs/todo-features/
 ├── plan.md              # This file
 ├── spec.md              # Feature specification (updated)
 ├── research.md          # Phase 0 output

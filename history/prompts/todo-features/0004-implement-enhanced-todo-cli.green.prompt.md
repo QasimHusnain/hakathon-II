@@ -5,13 +5,13 @@ stage: green
 date: 2026-01-16
 surface: agent
 model: claude-opus-4-5-20251101
-feature: 002-enhanced-todo-features
-branch: 002-enhanced-todo-features
+feature: todo-features
+branch: todo-features
 user: qasim
 command: /sp.implement
 labels: ["implementation", "enhanced-todo", "cli", "recurring", "filtering"]
 links:
-  spec: specs/002-enhanced-todo-features/spec.md
+  spec: specs/todo-features/spec.md
   ticket: null
   adr: null
   pr: null

@@ -2,7 +2,7 @@
 TaskManager service for managing tasks.
 
 Satisfies: specs/001-todo-cli-basic/tasks.md - T009, and later tasks for methods
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T010, T012, T030-T036, T037-T043, T044-T047
+Satisfies: specs/todo-features/tasks.md - T010, T012, T030-T036, T037-T043, T044-T047
 """
 
 from datetime import date, time
@@ -18,7 +18,7 @@ class TaskManager:
     Supports enhanced Task fields: priority, due_date, due_time, recurring, created_at.
 
     Satisfies: specs/001-todo-cli-basic/tasks.md - T009
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T010
+    Satisfies: specs/todo-features/tasks.md - T010
     """
 
     def __init__(self) -> None:
@@ -28,7 +28,7 @@ class TaskManager:
         Storage handles all Task fields including enhanced attributes.
 
         Satisfies: specs/001-todo-cli-basic/tasks.md - T009
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T010
+        Satisfies: specs/todo-features/tasks.md - T010
         """
         self.tasks: dict[int, Task] = {}
         self.next_id: int = 1
@@ -62,7 +62,7 @@ class TaskManager:
             InvalidTaskDataError: If title is empty or whitespace-only
 
         Satisfies: specs/001-todo-cli-basic/tasks.md - T010
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T011, T012
+        Satisfies: specs/todo-features/tasks.md - T011, T012
         """
         # Validation happens in Task.__post_init__
         task = Task(
@@ -128,7 +128,7 @@ class TaskManager:
             TaskNotFoundError: If task_id doesn't exist
 
         Satisfies: specs/001-todo-cli-basic/tasks.md - T021
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T030, T031, T032, T034, T036
+        Satisfies: specs/todo-features/tasks.md - T030, T031, T032, T034, T036
         """
         task = self.get_task(task_id)
         new_task: Optional[Task] = None
@@ -190,7 +190,7 @@ class TaskManager:
             InvalidTaskDataError: If new title is empty/whitespace
 
         Satisfies: specs/001-todo-cli-basic/tasks.md - T027
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T012, T037, T038, T039, T040
+        Satisfies: specs/todo-features/tasks.md - T012, T037, T038, T039, T040
         """
         task = self.get_task(task_id)
 
@@ -246,7 +246,7 @@ class TaskManager:
         Returns:
             List of tasks matching the status
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T044
+        Satisfies: specs/todo-features/tasks.md - T044
         """
         return [task for task in self.tasks.values() if task.status == status]
 
@@ -260,7 +260,7 @@ class TaskManager:
         Returns:
             List of tasks matching the priority
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T045
+        Satisfies: specs/todo-features/tasks.md - T045
         """
         return [task for task in self.tasks.values() if task.priority == priority]
 
@@ -271,7 +271,7 @@ class TaskManager:
         Returns:
             List of tasks with due_date equal to today
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T046
+        Satisfies: specs/todo-features/tasks.md - T046
         """
         from datetime import date as date_type
         today = date_type.today()
@@ -284,7 +284,7 @@ class TaskManager:
         Returns:
             List of overdue tasks (pending with due_date before today)
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T047
+        Satisfies: specs/todo-features/tasks.md - T047
         """
         from datetime import date as date_type
         today = date_type.today()
@@ -303,7 +303,7 @@ class TaskManager:
         Returns:
             List of tasks matching the category
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T008
+        Satisfies: specs/todo-features/tasks.md - T008
         """
         category_lower = category.lower()
         return [
@@ -318,7 +318,7 @@ class TaskManager:
         Returns:
             List of tasks sorted by due_date
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T009
+        Satisfies: specs/todo-features/tasks.md - T009
         """
         tasks_with_date = [t for t in self.tasks.values() if t.due_date is not None]
         tasks_without_date = [t for t in self.tasks.values() if t.due_date is None]
@@ -335,6 +335,6 @@ class TaskManager:
         Returns:
             List of tasks sorted by priority
 
-        Satisfies: specs/002-enhanced-todo-features/tasks.md - T010
+        Satisfies: specs/todo-features/tasks.md - T010
         """
         return sorted(self.tasks.values(), key=lambda t: t.priority.value)

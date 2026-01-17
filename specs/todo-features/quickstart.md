@@ -1,6 +1,6 @@
 # Quickstart: Enhanced Todo CLI with Refined UI
 
-**Feature**: 002-enhanced-todo-features
+**Feature**: todo-features
 **Updated**: 2026-01-17
 
 ## Installation

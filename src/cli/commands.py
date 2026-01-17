@@ -3,7 +3,7 @@ CLI menu handlers for Todo CLI Enhanced.
 
 Provides numeric menu-based interaction with interactive prompts.
 
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T021-T081
+Satisfies: specs/todo-features/tasks.md - T021-T081
 """
 
 from typing import Optional
@@ -22,7 +22,7 @@ def display_main_menu() -> None:
     """
     Display the main menu with 8 options.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T021, T022
+    Satisfies: specs/todo-features/tasks.md - T021, T022
     """
     print()
     print(SEPARATOR_MAJOR)
@@ -48,7 +48,7 @@ def get_menu_choice() -> Optional[int]:
     Returns:
         Valid integer 1-8, or None if invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T023, T024
+    Satisfies: specs/todo-features/tasks.md - T023, T024
     """
     try:
         user_input = input("Enter your choice (1-8): ").strip()
@@ -64,7 +64,7 @@ def handle_exit() -> None:
     """
     Handle exit option - print goodbye message.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T028
+    Satisfies: specs/todo-features/tasks.md - T028
     """
     print()
     print("Goodbye!")
@@ -76,7 +76,7 @@ def handle_add_task(manager: TaskManager) -> None:
 
     Prompts: Title -> Description -> Priority -> Category -> Due Date -> Recurring
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T030-T038
+    Satisfies: specs/todo-features/tasks.md - T030-T038
     """
     print()
     print(f"--- Add New Task ---")
@@ -157,7 +157,7 @@ def handle_view_tasks(manager: TaskManager) -> None:
     """
     Handle View All Tasks option.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T040-T044
+    Satisfies: specs/todo-features/tasks.md - T040-T044
     """
     print()
     print(SEPARATOR_MAJOR)
@@ -186,7 +186,7 @@ def handle_update_task(manager: TaskManager) -> None:
     """
     Handle Update Task option with interactive submenu.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T046-T052
+    Satisfies: specs/todo-features/tasks.md - T046-T052
     """
     print()
     print(f"--- Update Task ---")
@@ -292,7 +292,7 @@ def handle_delete_task(manager: TaskManager) -> None:
     """
     Handle Delete Task option with confirmation.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T054-T059
+    Satisfies: specs/todo-features/tasks.md - T054-T059
     """
     print()
     print(f"--- Delete Task ---")
@@ -334,7 +334,7 @@ def handle_toggle_complete(manager: TaskManager) -> None:
     """
     Handle Toggle Task Completion option.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T061-T065
+    Satisfies: specs/todo-features/tasks.md - T061-T065
     """
     print()
     print(f"--- Toggle Task Completion ---")
@@ -368,7 +368,7 @@ def handle_filter_menu(manager: TaskManager) -> None:
     """
     Handle Search / Filter Tasks option with submenu.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T067-T073
+    Satisfies: specs/todo-features/tasks.md - T067-T073
     """
     while True:
         print()
@@ -445,7 +445,7 @@ def handle_sort_menu(manager: TaskManager) -> None:
     """
     Handle Sort Tasks option with submenu.
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T075-T080
+    Satisfies: specs/todo-features/tasks.md - T075-T080
     """
     while True:
         print()

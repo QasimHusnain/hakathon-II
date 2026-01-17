@@ -24,10 +24,10 @@
   - None
 
   Templates Updated:
-  - specs/002-enhanced-todo-features/spec.md ✅ updated (Category, Sort, Recurring)
-  - specs/002-enhanced-todo-features/data-model.md ✅ updated (Category, Recurring)
-  - specs/002-enhanced-todo-features/plan.md ⚠ pending (update roadmap)
-  - specs/002-enhanced-todo-features/tasks.md ⚠ pending (regenerate tasks)
+  - specs/todo-features/spec.md ✅ updated (Category, Sort, Recurring)
+  - specs/todo-features/data-model.md ✅ updated (Category, Recurring)
+  - specs/todo-features/plan.md ⚠ pending (update roadmap)
+  - specs/todo-features/tasks.md ⚠ pending (regenerate tasks)
 
   Follow-up TODOs:
   - Update plan.md with numeric menu transition roadmap

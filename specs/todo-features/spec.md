@@ -1,6 +1,6 @@
 # Feature Specification: Enhanced Todo CLI with Refined UI
 
-**Feature Branch**: `002-enhanced-todo-features`
+**Feature Branch**: `todo-features`
 **Created**: 2026-01-16
 **Updated**: 2026-01-17
 **Status**: Draft

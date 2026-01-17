@@ -4,7 +4,7 @@ Parser utilities for Enhanced Todo CLI.
 Provides functions for parsing command arguments, dates, times,
 and handling recurring task date advancement.
 
-Satisfies: specs/002-enhanced-todo-features/tasks.md - T003, T007, T008, T009
+Satisfies: specs/todo-features/tasks.md - T003, T007, T008, T009
 """
 
 from datetime import datetime, date, time, timedelta
@@ -28,7 +28,7 @@ def parse_date(date_str: str) -> date:
     Raises:
         ValueError: If date format is invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T007
+    Satisfies: specs/todo-features/tasks.md - T007
     """
     try:
         return datetime.strptime(date_str, "%Y-%m-%d").date()
@@ -49,7 +49,7 @@ def parse_time(time_str: str) -> time:
     Raises:
         ValueError: If time format is invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T008
+    Satisfies: specs/todo-features/tasks.md - T008
     """
     try:
         return datetime.strptime(time_str, "%H:%M").time()
@@ -70,7 +70,7 @@ def advance_date(current_date: date, recurrence: int) -> date:
     Returns:
         Next occurrence date
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T009, T033
+    Satisfies: specs/todo-features/tasks.md - T009, T033
     """
     if recurrence == 1:  # DAILY
         return current_date + timedelta(days=1)
@@ -115,7 +115,7 @@ def parse_add_options(args: List[str]) -> Dict[str, Any]:
             - due_time: Optional[str]
             - recurring: Optional[str]
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T011
+    Satisfies: specs/todo-features/tasks.md - T011
     """
     result: Dict[str, Any] = {
         "title": None,
@@ -192,7 +192,7 @@ def parse_list_filters(args: List[str]) -> Dict[str, Any]:
             - today: bool
             - overdue: bool
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T048
+    Satisfies: specs/todo-features/tasks.md - T048
     """
     result: Dict[str, Any] = {
         "status": None,
@@ -239,7 +239,7 @@ def validate_priority_input(value: str) -> Optional[Priority]:
     Returns:
         Priority enum if valid, None if invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T017
+    Satisfies: specs/todo-features/tasks.md - T017
     """
     try:
         num = int(value)
@@ -264,7 +264,7 @@ def validate_recurring_input(value: str) -> Optional[Recurrence]:
     Returns:
         Recurrence enum if valid, None if invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T018
+    Satisfies: specs/todo-features/tasks.md - T018
     """
     try:
         num = int(value)
@@ -291,7 +291,7 @@ def validate_date_input(value: str) -> Optional[Tuple[date, Optional[time]]]:
     Returns:
         Tuple of (date, time or None) if valid, None if invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T019
+    Satisfies: specs/todo-features/tasks.md - T019
     """
     value = value.strip()
     if not value:
@@ -327,7 +327,7 @@ def validate_menu_choice(value: str, min_val: int, max_val: int) -> Optional[int
     Returns:
         Integer if valid, None if invalid
 
-    Satisfies: specs/002-enhanced-todo-features/tasks.md - T020
+    Satisfies: specs/todo-features/tasks.md - T020
     """
     try:
         num = int(value)
