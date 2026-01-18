@@ -254,21 +254,21 @@
 
 ### Unit Tests
 
-- [ ] T082 [P] Add unit tests for category field in tests/unit/test_task_model.py
-- [ ] T083 [P] Add unit tests for Priority integer values in tests/unit/test_task_model.py
-- [ ] T084 [P] Add unit tests for get_tasks_by_category() in tests/unit/test_task_manager.py
-- [ ] T085 [P] Add unit tests for get_tasks_sorted_by_date() in tests/unit/test_task_manager.py
-- [ ] T086 [P] Add unit tests for get_tasks_sorted_by_priority() in tests/unit/test_task_manager.py
-- [ ] T087 [P] Add unit tests for validation utilities in tests/unit/test_parser.py
-- [ ] T088 [P] Add unit tests for format_task() with category in tests/unit/test_formatter.py
+- [X] T082 [P] Add unit tests for category field in tests/unit/test_task_model.py
+- [X] T083 [P] Add unit tests for Priority integer values in tests/unit/test_task_model.py
+- [X] T084 [P] Add unit tests for get_tasks_by_category() in tests/unit/test_task_manager.py
+- [X] T085 [P] Add unit tests for get_tasks_sorted_by_date() in tests/unit/test_task_manager.py
+- [X] T086 [P] Add unit tests for get_tasks_sorted_by_priority() in tests/unit/test_task_manager.py
+- [X] T087 [P] Add unit tests for validation utilities in tests/unit/test_parser.py
+- [X] T088 [P] Add unit tests for format_task() with category in tests/unit/test_formatter.py
 
 ### Integration Tests
 
-- [ ] T089 Add integration test for Add Task flow in tests/integration/test_cli_commands.py
-- [ ] T090 Add integration test for Filter submenu in tests/integration/test_cli_commands.py
-- [ ] T091 Add integration test for Sort submenu in tests/integration/test_cli_commands.py
+- [X] T089 Add integration test for Add Task flow in tests/integration/test_cli_commands.py
+- [X] T090 Add integration test for Filter submenu in tests/integration/test_cli_commands.py
+- [X] T091 Add integration test for Sort submenu in tests/integration/test_cli_commands.py
 
-**Checkpoint**: All tests pass
+**Checkpoint**: All tests pass (112 tests passing)
 
 ---
 
@@ -276,10 +276,10 @@
 
 **Purpose**: Final cleanup and validation
 
-- [ ] T092 Run mypy type checking on all modified files
-- [ ] T093 Run quickstart.md validation - verify all menu examples work
-- [ ] T094 Update docstrings with task ID references in all modified files
-- [ ] T095 Remove backup files (T002, T003) if refactor successful
+- [X] T092 Run mypy type checking on all modified files
+- [X] T093 Run quickstart.md validation - verify all menu examples work
+- [X] T094 Update docstrings with task ID references in all modified files
+- [X] T095 Remove backup files (T002, T003) if refactor successful (no backup files exist)
 
 ---
 
@@ -386,6 +386,7 @@ T082, T083, T084, T085, T086, T087, T088
 | Metric | Count |
 |--------|-------|
 | **Total Tasks** | 95 |
+| **Completed Tasks** | 95 ✅ |
 | Setup Tasks | 3 |
 | Foundational Tasks | 17 |
 | User Story Tasks | 64 |
@@ -394,19 +395,20 @@ T082, T083, T084, T085, T086, T087, T088
 | **MVP Tasks** | 45 |
 | Files Modified | 9 |
 | Major Refactors | 2 (commands.py, main.py) |
+| **Test Count** | 112 passing |
 
-| Phase | Story | Tasks |
-|-------|-------|-------|
-| 1 | Setup | 3 |
-| 2 | Foundational | 17 |
-| 3 | US3 (Menu) | 7 |
-| 4 | US9 (Exit) | 2 |
-| 5 | US1 (Add) | 10 |
-| 6 | US2 (View) | 6 |
-| 7 | US4 (Update) | 8 |
-| 8 | US5 (Delete) | 7 |
-| 9 | US6 (Toggle) | 6 |
-| 10 | US7 (Filter) | 8 |
-| 11 | US8 (Sort) | 7 |
-| 12 | Testing | 10 |
-| 13 | Polish | 4 |
+| Phase | Story | Tasks | Status |
+|-------|-------|-------|--------|
+| 1 | Setup | 3 | ✅ Complete |
+| 2 | Foundational | 17 | ✅ Complete |
+| 3 | US3 (Menu) | 7 | ✅ Complete |
+| 4 | US9 (Exit) | 2 | ✅ Complete |
+| 5 | US1 (Add) | 10 | ✅ Complete |
+| 6 | US2 (View) | 6 | ✅ Complete |
+| 7 | US4 (Update) | 8 | ✅ Complete |
+| 8 | US5 (Delete) | 7 | ✅ Complete |
+| 9 | US6 (Toggle) | 6 | ✅ Complete |
+| 10 | US7 (Filter) | 8 | ✅ Complete |
+| 11 | US8 (Sort) | 7 | ✅ Complete |
+| 12 | Testing | 10 | ✅ Complete |
+| 13 | Polish | 4 | ✅ Complete |

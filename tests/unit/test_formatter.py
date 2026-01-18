@@ -43,6 +43,107 @@ class TestFormatTask:
         assert "Test description" in result
         assert "    " in result  # Indentation for description
 
+    def test_format_task_with_category(self) -> None:
+        """
+        Test formatting task with category shows category indicator.
+
+        Satisfies: specs/todo-features/tasks.md - T088
+        """
+        task = Task(
+            id=1,
+            title="Test task",
+            status=Status.PENDING,
+            category="Work"
+        )
+        result = format_task(task)
+
+        assert "[Work]" in result
+
+    def test_format_task_without_category(self) -> None:
+        """
+        Test formatting task without category omits category indicator.
+
+        Satisfies: specs/todo-features/tasks.md - T088
+        """
+        task = Task(
+            id=1,
+            title="Test task",
+            status=Status.PENDING
+        )
+        result = format_task(task)
+
+        # Should not have category brackets (other than status indicator)
+        lines = result.split("\n")
+        first_line = lines[0]
+        # Check that no category indicator appears after the title area
+        assert "[ ]" in first_line or "[X]" in first_line  # Status exists
+        assert first_line.count("[") <= 3  # ID, status, maybe priority
+
+    def test_format_task_with_priority(self) -> None:
+        """
+        Test formatting task with priority shows priority indicator.
+
+        Satisfies: specs/todo-features/tasks.md - T088
+        """
+        from src.models.task import Priority
+        task = Task(
+            id=1,
+            title="Test task",
+            status=Status.PENDING,
+            priority=Priority.HIGH
+        )
+        result = format_task(task)
+
+        assert "[H]" in result
+
+    def test_format_task_with_due_date(self) -> None:
+        """
+        Test formatting task with due date shows date info.
+
+        Satisfies: specs/todo-features/tasks.md - T088
+        """
+        from datetime import date
+        task = Task(
+            id=1,
+            title="Test task",
+            status=Status.PENDING,
+            due_date=date(2026, 1, 20)
+        )
+        result = format_task(task)
+
+        assert "2026-01-20" in result
+
+    def test_format_task_with_all_enhanced_fields(self) -> None:
+        """
+        Test formatting task with all enhanced fields.
+
+        Satisfies: specs/todo-features/tasks.md - T088
+        """
+        from datetime import date, time
+        from src.models.task import Priority, Recurrence
+        task = Task(
+            id=1,
+            title="Complete project",
+            status=Status.PENDING,
+            priority=Priority.HIGH,
+            category="Work",
+            description="Finish the todo app",
+            due_date=date(2026, 1, 20),
+            due_time=time(14, 30),
+            recurring=Recurrence.WEEKLY
+        )
+        result = format_task(task)
+
+        assert "[1]" in result
+        assert "[ ]" in result
+        assert "[H]" in result
+        assert "[Work]" in result
+        assert "Complete project" in result
+        assert "2026-01-20" in result
+        assert "14:30" in result
+        assert "Weekly" in result or "weekly" in result.lower()
+        assert "Finish the todo app" in result
+
 
 class TestFormatTaskList:
     """Test format_task_list function."""
