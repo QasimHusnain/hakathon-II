@@ -89,9 +89,8 @@ def handle_add_task(manager: TaskManager) -> None:
         print("Error: Task title cannot be empty")
 
     # T032: Description prompt (optional)
-    description = input("Description (press Enter to skip): ").strip()
-    if not description:
-        description = None
+    description_input = input("Description (press Enter to skip): ").strip()
+    description: str | None = description_input if description_input else None
 
     # T033: Priority prompt with default
     priority = Priority.MEDIUM
@@ -106,9 +105,8 @@ def handle_add_task(manager: TaskManager) -> None:
         print("Error: Invalid priority. Enter 1 (High), 2 (Medium), or 3 (Low)")
 
     # T034: Category prompt (optional)
-    category = input("Category (press Enter to skip): ").strip()
-    if not category:
-        category = None
+    category_input = input("Category (press Enter to skip): ").strip()
+    category: str | None = category_input if category_input else None
 
     # T035: Due date prompt with validation
     due_date = None
@@ -129,9 +127,9 @@ def handle_add_task(manager: TaskManager) -> None:
         recurring_input = input("Recurring (1=Daily, 2=Weekly, 3=Monthly, press Enter to skip): ").strip()
         if not recurring_input:
             break
-        validated = validate_recurring_input(recurring_input)
-        if validated:
-            recurring = validated
+        validated_recurring = validate_recurring_input(recurring_input)
+        if validated_recurring:
+            recurring = validated_recurring
             break
         print("Error: Invalid recurring. Enter 1 (Daily), 2 (Weekly), 3 (Monthly), or press Enter to skip")
 
@@ -273,9 +271,9 @@ def handle_update_task(manager: TaskManager) -> None:
             elif choice == 6:  # Recurring
                 while True:
                     recurring_input = input("New recurring (1=Daily, 2=Weekly, 3=Monthly, 0=None): ").strip()
-                    validated = validate_recurring_input(recurring_input)
-                    if validated is not None:
-                        manager.update_task(task_id, recurring=validated)
+                    validated_recurrence = validate_recurring_input(recurring_input)
+                    if validated_recurrence is not None:
+                        manager.update_task(task_id, recurring=validated_recurrence)
                         break
                     print("Error: Invalid recurring. Enter 0 (None), 1 (Daily), 2 (Weekly), or 3 (Monthly)")
 

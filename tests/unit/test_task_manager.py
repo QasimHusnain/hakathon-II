@@ -186,3 +186,120 @@ class TestTaskManager:
 
         new_task = manager.add_task("Task 2")
         assert new_task.id == 2  # ID 1 not reused
+
+
+class TestTaskManagerCategory:
+    """
+    Test TaskManager category-related methods.
+
+    Satisfies: specs/todo-features/tasks.md - T084
+    """
+
+    def test_add_task_with_category(self) -> None:
+        """Test adding task with category."""
+        manager = TaskManager()
+        task = manager.add_task("Task", category="Work")
+        assert task.category == "Work"
+
+    def test_get_tasks_by_category(self) -> None:
+        """Test filtering tasks by category."""
+        manager = TaskManager()
+        manager.add_task("Task 1", category="Work")
+        manager.add_task("Task 2", category="Personal")
+        manager.add_task("Task 3", category="Work")
+
+        work_tasks = manager.get_tasks_by_category("Work")
+        assert len(work_tasks) == 2
+        assert all(t.category == "Work" for t in work_tasks)
+
+    def test_get_tasks_by_category_case_insensitive(self) -> None:
+        """Test category filtering is case-insensitive."""
+        manager = TaskManager()
+        manager.add_task("Task 1", category="Work")
+        manager.add_task("Task 2", category="WORK")
+        manager.add_task("Task 3", category="work")
+
+        tasks = manager.get_tasks_by_category("WoRk")
+        assert len(tasks) == 3
+
+    def test_get_tasks_by_category_no_matches(self) -> None:
+        """Test filtering returns empty list when no matches."""
+        manager = TaskManager()
+        manager.add_task("Task 1", category="Work")
+
+        tasks = manager.get_tasks_by_category("Personal")
+        assert tasks == []
+
+    def test_update_task_category(self) -> None:
+        """Test updating task category."""
+        manager = TaskManager()
+        manager.add_task("Task", category="Work")
+
+        updated = manager.update_task(1, category="Personal")
+        assert updated.category == "Personal"
+
+
+class TestTaskManagerSorting:
+    """
+    Test TaskManager sorting methods.
+
+    Satisfies: specs/todo-features/tasks.md - T085, T086
+    """
+
+    def test_get_tasks_sorted_by_date_ascending(self) -> None:
+        """Test tasks are sorted by due date in ascending order."""
+        from datetime import date
+        manager = TaskManager()
+        manager.add_task("Task 3", due_date=date(2026, 3, 1))
+        manager.add_task("Task 1", due_date=date(2026, 1, 1))
+        manager.add_task("Task 2", due_date=date(2026, 2, 1))
+
+        sorted_tasks = manager.get_tasks_sorted_by_date()
+        assert sorted_tasks[0].title == "Task 1"
+        assert sorted_tasks[1].title == "Task 2"
+        assert sorted_tasks[2].title == "Task 3"
+
+    def test_get_tasks_sorted_by_date_nulls_last(self) -> None:
+        """Test tasks without due date appear last."""
+        from datetime import date
+        manager = TaskManager()
+        manager.add_task("No date")
+        manager.add_task("Has date", due_date=date(2026, 1, 1))
+
+        sorted_tasks = manager.get_tasks_sorted_by_date()
+        assert sorted_tasks[0].title == "Has date"
+        assert sorted_tasks[1].title == "No date"
+
+    def test_get_tasks_sorted_by_priority_high_to_low(self) -> None:
+        """Test tasks are sorted by priority (High -> Medium -> Low)."""
+        from src.models.task import Priority
+        manager = TaskManager()
+        manager.add_task("Low", priority=Priority.LOW)
+        manager.add_task("High", priority=Priority.HIGH)
+        manager.add_task("Medium", priority=Priority.MEDIUM)
+
+        sorted_tasks = manager.get_tasks_sorted_by_priority()
+        assert sorted_tasks[0].title == "High"
+        assert sorted_tasks[1].title == "Medium"
+        assert sorted_tasks[2].title == "Low"
+
+    def test_get_tasks_sorted_by_priority_all_same(self) -> None:
+        """Test sorting when all tasks have same priority."""
+        from src.models.task import Priority
+        manager = TaskManager()
+        manager.add_task("Task 1", priority=Priority.MEDIUM)
+        manager.add_task("Task 2", priority=Priority.MEDIUM)
+
+        sorted_tasks = manager.get_tasks_sorted_by_priority()
+        assert len(sorted_tasks) == 2
+
+    def test_get_tasks_sorted_by_date_with_time(self) -> None:
+        """Test sorting considers time when dates are equal."""
+        from datetime import date, time
+        manager = TaskManager()
+        manager.add_task("Later", due_date=date(2026, 1, 1), due_time=time(14, 0))
+        manager.add_task("Earlier", due_date=date(2026, 1, 1), due_time=time(9, 0))
+
+        sorted_tasks = manager.get_tasks_sorted_by_date()
+        assert sorted_tasks[0].title == "Earlier"
+        assert sorted_tasks[1].title == "Later"
